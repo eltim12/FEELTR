@@ -1,0 +1,28 @@
+{
+  "name": "feeltr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eltim12/FEELTR.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eltim12/FEELTR/issues"
+  },
+  "homepage": "https://github.com/eltim12/FEELTR#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "pg": "^7.8.1",
+    "sequelize": "^4.42.0"
+  }
+}
