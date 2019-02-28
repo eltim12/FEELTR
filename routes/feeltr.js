@@ -4,6 +4,12 @@ const fs = require("fs")
 const upload = require('../helpers/multer')
 const checkLogin = require('../middlewares/checkLogin')
 
+
+router.get('/', (req, res) => {
+    res.render()
+})
+
+
 router.get('/:id', checkLogin, (req, res) => {
     Tag
         .findAll()
@@ -25,11 +31,7 @@ router.post('/getTags/:id', (req, res) => {
                 order: [['createdAt', 'DESC']]
             })
         .then(data => {
-            // res.send(data)
             photoId = data[0].id
-            console.log(photoId);
-            console.log(req.body.section);
-            
             let tags = req.body.section.map(e => {
                 return e = {
                     PhotoId: photoId,
@@ -41,12 +43,11 @@ router.post('/getTags/:id', (req, res) => {
             return PhotoTag.bulkCreate(tags, { returning: true })
         })
         .then(data => {
-            res.send('success coy')
+            res.redirect('success coy')
         })
         .catch(err => {
             res.send(err)
         })
-
 })
 
 router.post("/:id", upload.single("image"), (req, res) => {

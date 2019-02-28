@@ -11,7 +11,6 @@
             background-color: black;
         }
 
-
         .content *,
         .content *::before,
         .content *::after {
@@ -398,7 +397,18 @@ Remove or comment-out the code block below to see how the browser will fall-back
             float: left;
             padding-right: 10px;
             position: relative;
-            bottom: 15px;
+            bottom: 23px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .keluar p {
+            z-index: 5;
+            width: 16px;
+            border-radius: 50px;
+            float: left;
+            padding-right: 10px;
+            position: relative;
+            bottom: 23px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -441,7 +451,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
         }
 
         .logoutLimitter a:hover {
-            width: 130px;
+            width: 100px;
         }
 
         .logoutLimitter a:hover .logout {
@@ -467,6 +477,13 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
 
     <div class="logoutLimitter">
+        <div class="welcome">
+            <a class="button" href="/users/<%= output.userData.id %>/edit">
+                <p><%= output.session.userLoggin.name %></p>
+                <div class="logout">edit</div>
+            </a>
+        </div>
+    </div>
 
         <a class="button" href="/users/<%= userData.id %>/edit">
             <p><%= userData.name %></p>
@@ -511,12 +528,17 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
         </div>
         <% }) %>
+
+    <div class="logoutLimitter">
+        <div class="keluar">
+            <a class="button" href="/users/logout">
+                <p>logout</p>
+                <div class="logout">sure?</div>
+            </a>
+        </div>
     </div>
 
 
 </body>
-
-
-
 
 </html>
