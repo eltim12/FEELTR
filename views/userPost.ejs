@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: black;
+        }
+
+
+        @import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+
+        .logoutLimitter p {
+            width: 25px;
+            border-radius: 50px;
+            float: left;
+            padding-right: 10px;
+            position: relative;
+            bottom: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .welcome p {
+            width: 25px;
+            border-radius: 50px;
+            float: left;
+            padding-right: 10px;
+            position: relative;
+            bottom: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .logoutLimitter .logout {
+            color: red;
+            float: right;
+            right: 50cm;
+            font-size: .8em;
+            font-family: 'Oswald', sans-serif;
+            position: relative;
+            right: -18px;
+            bottom: -12px;
+            overflow: hidden;
+            letter-spacing: 3px;
+            opacity: 0;
+            transition: opacity .45s;
+            -webkit-transition: opacity .35s;
+
+        }
+
+        /* tulisan logout */
+        .logoutLimitter .button {
+            position: relative;
+            /* left:40cm; */
+            bottom: 17px;
+            text-decoration: none;
+            float: right;
+            padding: 12px;
+            left: 4px;
+            margin: 15px;
+            color: white;
+            width: 50px;
+            height: 20px;
+            background-color: black;
+            transition: width .35s;
+            -webkit-transition: width .35s;
+            overflow: hidden;
+        }
+
+        .logoutLimitter a:hover {
+            width: 130px;
+        }
+
+        .logoutLimitter a:hover .logout {
+            opacity: .9;
+        }
+
+        .logoutLimitter a {
+            text-decoration: none;
+        }
+
+        .user_name {
+            position: absolute;
+            color: red;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <%- include('./partials/navbar') %>
+
+
+    <div class="logoutLimitter">
+
+        <a class="button" href="/users/<%= output.userData.id %>/edit">
+            <p><%= output.session.userLoggin.name %></p>
+            <div class="logout">edit</div>
+        </a>
+
+    </div>
+
+</body>
+
+
+
+
+</html>
