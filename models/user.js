@@ -93,5 +93,9 @@ module.exports = (sequelize, DataTypes) => {
     user.password = bcrypt.encrypt(user.password)
   })
 
+  User.beforeUpdate((user,options) => {
+    user.password = bcrypt.encrypt(user.password)
+  })
+
   return User;
 };
