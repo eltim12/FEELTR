@@ -26,6 +26,13 @@
                     </div>
         </form>
 
+        <form action="/feeltr/getTags/<%= id %>" method="POST">
+            <br><br>
+            <% tags.forEach(e => { %>
+                <input type="checkbox" name="section" value="<%= e.id%>"> <%=e.name%>
+            <% })%>
+            <input type="submit" value="Add Tags">
+        </form>
 
         <h4 class="text-center my-3">Filters</h4>
 
