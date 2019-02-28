@@ -1,4 +1,3 @@
-
 const express = require('express')
 const session = require('express-session')
 const app = express()
@@ -9,19 +8,20 @@ const fs = require("fs")
 
 const userRoutes = require("./routes/user")
 const homeRoutes = require("./routes/home")
+const bodyParser = require("body-parser")
 
 app.use(session({
     secret: "keyboard cat"
 }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
 
 //routing
 app.use("/", homeRoutes)
 app.use("/users", userRoutes)
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
 
 // M U L T E R
 const storage = multer.diskStorage({
