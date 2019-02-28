@@ -4,6 +4,12 @@ const fs = require("fs")
 const upload = require('../helpers/multer')
 const checkLogin = require('../middlewares/checkLogin')
 
+
+router.get('/', (req,res) => {
+    res.render()
+})
+
+
 router.get('/:id', checkLogin, (req, res) => {
     Tag
         .findAll()
