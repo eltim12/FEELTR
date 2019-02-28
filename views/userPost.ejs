@@ -11,7 +11,6 @@
             background-color: black;
         }
 
-
         @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
 
@@ -34,7 +33,18 @@
             float: left;
             padding-right: 10px;
             position: relative;
-            bottom: 15px;
+            bottom: 23px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .keluar p {
+            z-index: 5;
+            width: 16px;
+            border-radius: 50px;
+            float: left;
+            padding-right: 10px;
+            position: relative;
+            bottom: 23px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -77,7 +87,7 @@
         }
 
         .logoutLimitter a:hover {
-            width: 130px;
+            width: 100px;
         }
 
         .logoutLimitter a:hover .logout {
@@ -103,17 +113,24 @@
 
 
     <div class="logoutLimitter">
+        <div class="welcome">
+            <a class="button" href="/users/<%= output.userData.id %>/edit">
+                <p><%= output.session.userLoggin.name %></p>
+                <div class="logout">edit</div>
+            </a>
+        </div>
+    </div>
 
-        <a class="button" href="/users/<%= output.userData.id %>/edit">
-            <p><%= output.session.userLoggin.name %></p>
-            <div class="logout">edit</div>
-        </a>
 
+    <div class="logoutLimitter">
+        <div class="keluar">
+            <a class="button" href="/users/logout">
+                <p>logout</p>
+                <div class="logout">sure?</div>
+            </a>
+        </div>
     </div>
 
 </body>
-
-
-
 
 </html>

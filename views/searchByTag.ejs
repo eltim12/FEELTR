@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>search</title>
     <style>
         html {
             background-color: black;
@@ -483,34 +483,30 @@ Remove or comment-out the code block below to see how the browser will fall-back
         </a>
 
         <% } %>
-
     </div>
-
 
 
 
 
     <div class="content" name="postid"> </a>
 
-        <% output.photo.forEach(e=>{ %>
+        <% output.byTags.Photos.forEach(e=> { %>
         <div class="container">
 
             <div class="gallery">
 
                 <div class="gallery-item" tabindex="0">
                     <!-- ========================[PHOTO]=================== -->
-                    <img src="<%= e.photoUrl %>" class="gallery-image" alt="">
-                    
+                    <img src="<%= e.dataValues.photoUrl %>" class="gallery-image" alt="">
+
                     <div class="gallery-item-info">
                         <!-- ========================[TAGs]=================== -->
-                        <%if(e.Tags.length > 0) { %>
                         <ul>
-                            <% e.Tags.forEach(t => { %>
+
                             <li class="gallery-item-likes"><span class="visually-hidden">tag:</span><i
-                                    class="fas fa-heart" aria-hidden="true"></i> <%= t.name %> </li>
-                            <% }) %>
+                                    class="fas fa-heart" aria-hidden="true"></i> <%= output.byTags.name %></li>
+
                         </ul>
-                        <% } %>
                     </div>
                 </div>
             </div>
