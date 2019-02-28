@@ -5,7 +5,44 @@ const upload = require('../helpers/multer')
 const checkLogin = require('../middlewares/checkLogin')
 
 router.get('/:id', checkLogin, (req, res) => {
-    res.render('feeltr', { id: req.params.id })
+    Tag
+        .findAll()
+        .then(tags => {
+            // res.send(tags)
+            res.render('feeltr', { id: req.params.id, tags })
+        })
+        .catch(err => {
+            res.send(err)
+        })
+
+})
+
+router.post('/getTags/:id', (req, res) => {
+    let photoId
+    Photo
+        .findAll(
+            {
+                order: [['createdAt', 'DESC']]
+            })
+        .then(data => {
+            photoId = data[0].id
+            let tags = req.body.section.map(e => {
+                return e = {
+                    PhotoId: photoId,
+                    TagId: e
+                }
+            })
+            console.log(tags);
+
+            return PhotoTag.bulkCreate(tags, { returning: true })
+        })
+        .then(data => {
+            res.redirect('success coy')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+
 })
 
 router.post("/:id", upload.single("image"), (req, res) => {
@@ -28,5 +65,6 @@ router.post("/:id", upload.single("image"), (req, res) => {
             res.send(err)
         })
 })
+
 
 module.exports = router

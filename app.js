@@ -16,7 +16,6 @@ const feeltrRoutes = require("./routes/feeltr")
 app.use(session({
     secret: "keyboard cat"
 }))
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
