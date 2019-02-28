@@ -42,7 +42,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     // res.send(req.body)
-    console.log(req.body)
+    // console.log(req.body)
     User
         .findOne({
             where: {
@@ -91,23 +91,47 @@ router.get("/:id/profile", (req, res) => {
         .catch(err => {
             res.send(err)
         })
-    res.render("userPost.ejs")
 })
 
 router.get("/:id/edit", (req, res) => {
+    let errMsg = null
+    if (req.query.err) {
+        errMsg = req.query.err
+    }
     User
         .findByPk(req.params.id)
         .then(dataFound => {
-            res.send(dataFound)
+            let data = {
+                user: dataFound,
+                errMsg
+            }
+            res.render("userEdit.ejs", { output: data })
         })
         .catch(err => {
             res.send(err)
         })
 })
 
-router.get("/:id/editProfile",(req,res) => {
-    req.send(req.params)
-    res.render("userEdit.ejs")
+router.post("/:id/edit", (req, res) => {
+    User
+        .update({
+            id: req.session.userLoggin.id,
+            fullName: req.body.fullName,
+            username: req.body.username,
+            password: req.body.passowrd,
+            email: req.body.email
+        }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+        .then(dataUpdated => {
+            res.redirect("/users/login")
+        })
+        .catch(err => {
+            res.redirect(`/users/${req.params.id}/edit?err=${err.message}`)
+        })
+    // res.send(req.body)
 })
 
 router.get("/session", (req, res) => {
