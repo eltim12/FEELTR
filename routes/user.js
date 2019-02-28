@@ -2,6 +2,7 @@ const router = require("express").Router()
 const bcrypt = require('../helpers/encrypt')
 const User = require("../models").User
 const Photo = require("../models").Photo
+const Tag = require('../models').Tag
 
 
 router.get("/register", (req, res) => {
@@ -65,7 +66,7 @@ router.post("/login", (req, res) => {
                 }
             }
             console.log(req.session);
-            
+
         })
         .catch(err => {
             res.redirect(`/users/login?err=${err.message}`)
@@ -78,19 +79,18 @@ router.get("/logout", (req, res) => {
 })
 
 router.get("/:id/profile", (req, res) => {
-    User
-        .findByPk(req.params.id, { include: { model: Photo } })
-        .then(dataFound => {
-            let data = {
-                userData: dataFound,
-                session: req.session
-            }
-            // res.send(data)
-            res.render("userPost.ejs", { output: data })
+    let userData
+    Photo.findAll({ where: { UserId: req.params.id }, include: { model: Tag } })
+            // res.render("userPost.ejs", { output: data })
+    
+        .then(photosData => {
+            // res.send(photosData)
+            res.render('userPost', { userData: req.session.userLoggin, photos: photosData })
         })
         .catch(err => {
             res.send(err)
         })
+    // res.send(req.session)
 })
 
 router.get("/:id/edit", (req, res) => {
