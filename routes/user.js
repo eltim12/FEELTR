@@ -111,3 +111,9 @@ router.get("/session", (req, res) => {
 
 
 module.exports = router
+
+
+
+
+
+console.log("test")
