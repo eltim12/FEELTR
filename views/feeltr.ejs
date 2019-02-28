@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>FEELTR</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <form enctype="multipart/form-data" method="POST" action="/feeltr">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <div class="custom-file mb-3">
+                        <input type="file" class="custom-file-input" id="upload-file" name="file">
+                        <label for="upload-file" class="custom-file-label">Choose Image</label>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                    <div>
+                        <input type="button" value="Upload Image" onclick="uploadImage(1)">
+                    </div>
+        </form>
+
+
+        <h4 class="text-center my-3">Filters</h4>
+
+        <div class="row my-4 text-center">
+            <div class="col-md-3">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="filter-btn brightness-remove btn btn-secondary">-</button>
+                    <button class="btn btn-secondary btn-disabled" disabled>Brightness</button>
+                    <button type="button" class="filter-btn brightness-add btn btn-secondary">+</button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="filter-btn contrast-remove btn btn-secondary">-</button>
+                    <button type="button" class="btn btn-secondary btn-disabled" disabled>Contrast</button>
+                    <button type="button" class="filter-btn contrast-add btn btn-secondary">+</button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="filter-btn saturation-remove btn btn-secondary">-</button>
+                    <button type="button" class="btn btn-secondary btn-disabled" disabled>Saturation</button>
+                    <button type="button" class="filter-btn saturation-add btn btn-secondary">+</button>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="filter-btn vibrance-remove btn btn-secondary">-</button>
+                    <button type="button" class="btn btn-secondary btn-disabled" disabled>Vibrance</button>
+                    <button type="button" class="filter-btn vibrance-add btn btn-secondary">+</button>
+                </div>
+            </div>
+        </div>
+        <!-- ./row -->
+
+        <h4 class="text-center my-3">Effects</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <button type="button" class="filter-btn vintage-add btn btn-outline-secondary">
+                    Vintage
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn lomo-add btn btn-outline-secondary">
+                    Lomo
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn clarity-add btn btn-outline-secondary">
+                    Clarity
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn sincity-add btn btn-outline-secondary">
+                    Sin City
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="filter-btn crossprocess-add btn btn-outline-secondary">
+                    Cross Process
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn pinhole-add btn btn-outline-secondary">
+                    Pinhole
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn nostalgia-add btn btn-outline-secondary">
+                    Nostalgia
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="filter-btn hermajesty-add btn btn-outline-secondary">
+                    Her Majesty
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <button type="button" id="download-btn" class="btn btn-success btn-block">Download Image</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" id="revert-btn" class="btn btn-danger btn-block">Remove Filters</button>
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/main.js"></script>
+</body>
+
+</html>
