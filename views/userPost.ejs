@@ -380,13 +380,11 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
         .logoutLimitter p {
             z-index: 5;
-
-            width: 25px;
-            border-radius: 50px;
+            width: 50px;
             float: left;
             padding-right: 10px;
             position: relative;
-            bottom: 25px;
+            bottom: 5px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -397,18 +395,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
             float: left;
             padding-right: 10px;
             position: relative;
-            bottom: 23px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .keluar p {
-            z-index: 5;
-            width: 16px;
-            border-radius: 50px;
-            float: left;
-            padding-right: 10px;
-            position: relative;
-            bottom: 23px;
+            bottom: 15px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -427,7 +414,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
             opacity: 0;
             transition: opacity .45s;
             -webkit-transition: opacity .35s;
-
         }
 
         /* tulisan logout */
@@ -439,10 +425,9 @@ Remove or comment-out the code block below to see how the browser will fall-back
             text-decoration: none;
             float: right;
             padding: 12px;
-            left: 4px;
             margin: 15px;
             color: white;
-            width: 50px;
+            width: 70px;
             height: 20px;
             background-color: black;
             transition: width .35s;
@@ -451,7 +436,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
         }
 
         .logoutLimitter a:hover {
-            width: 100px;
+
+            width: 130px;
         }
 
         .logoutLimitter a:hover .logout {
@@ -460,12 +446,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
         .logoutLimitter a {
             text-decoration: none;
-        }
-
-        .user_name {
-            position: absolute;
-            color: red;
-
         }
     </style>
 
@@ -478,21 +458,21 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
     <div class="logoutLimitter">
         <div class="welcome">
-            <a class="button" href="/users/<%= output.userData.id %>/edit">
-                <p><%= output.session.userLoggin.name %></p>
+            <a class="button" href="/users/<%= userData.id %>/edit">
+
+                <p><%= userData.name %></p>
                 <div class="logout">edit</div>
             </a>
         </div>
     </div>
 
-        <a class="button" href="/users/<%= userData.id %>/edit">
-            <p><%= userData.name %></p>
-            <div class="logout">edit</div>
+
+    <div class="logoutLimitter">
+        <a class="button" href="/users/logout">
+            <p>logout</p>
+            <div class="logout">sure?</div>
         </a>
     </div>
-
-
-
 
 
 
@@ -511,12 +491,13 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
                     <div class="gallery-item-info">
 
-                    <!-- ========================[TAGs]=================== -->
+                        <!-- ========================[TAGs]=================== -->
                         <%if(e.Tags.length > 0) { %>
                         <ul>
                             <% e.Tags.forEach(t => { %>
-                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span class="visually-hidden">tag:</span><i
-                                    class="fas fa-tag" aria-hidden="true"></i> <%= t.name %> </li>
+                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span
+                                    class="visually-hidden">tag:</span><i class="fas fa-tag" aria-hidden="true"></i>
+                                <%= t.name %> </li>
                             <% }) %>
                         </ul>
                         <% } %>
@@ -529,14 +510,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
         </div>
         <% }) %>
 
-    <div class="logoutLimitter">
-        <div class="keluar">
-            <a class="button" href="/users/logout">
-                <p>logout</p>
-                <div class="logout">sure?</div>
-            </a>
-        </div>
-    </div>
+
 
 
 </body>
