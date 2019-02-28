@@ -160,6 +160,8 @@ function download(canvas, filename) {
 }
 
 function uploadImage(id) {
+    console.log(id);
+    
     const canvas = document.getElementById("canvas")
     console.log(canvas.toDataURL())
     const formData = new FormData()

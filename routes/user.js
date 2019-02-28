@@ -61,6 +61,8 @@ router.post("/login", (req, res) => {
                     res.redirect('/')
                 }
             }
+            console.log(req.session);
+            
         })
         .catch(err => {
             res.redirect(`/users/login?err=${err.message}`)

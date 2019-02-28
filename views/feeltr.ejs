@@ -13,7 +13,7 @@
 <body>
     <div class="container">
 
-        <form enctype="multipart/form-data" method="POST" action="/feeltr">
+        <form enctype="multipart/form-data" method="POST" action="/feeltr/<%=id%>">
             <div class="row">
                 <div class="col-md-8 m-auto">
                     <div class="custom-file mb-3">
@@ -22,7 +22,7 @@
                     </div>
                     <canvas id="canvas"></canvas>
                     <div>
-                        <input type="button" value="Upload Image" onclick="uploadImage(1)">
+                        <input type="button" value="Upload Image" onclick="uploadImage('<%=id%>')">
                     </div>
         </form>
 
@@ -121,9 +121,9 @@
             </div>
         </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/main.js"></script>
 </body>
 
 </html>
