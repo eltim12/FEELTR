@@ -20,8 +20,8 @@ router.post("/register", (req, res) => {
         email: req.body.email
     })
         .then(data => {
-            // res.redirect('/user')
-            res.send("success register.")
+            res.redirect('/users/login')
+            // res.send("success register.")
         })
         .catch(err => {
             res.redirect(`/users/register?err=${err.message}`)
