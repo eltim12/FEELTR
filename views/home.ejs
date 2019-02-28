@@ -35,7 +35,7 @@
         .container {
             max-width: 93.5rem;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0.2rem;
         }
 
         .btn {
@@ -392,7 +392,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
             float: left;
             padding-right: 10px;
             position: relative;
-            bottom: 25px;
+            bottom: 5px;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -466,10 +466,10 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
     <div class="logoutLimitter">
 
-        <% if(output.session) { %>
+        <% if(output) { %>
 
-        <a class="button" href="/users/<%= output.session.id %>/profile">
-            <p><%= output.session.name %></p>
+        <a class="button" href="/users/<%= output.id %>/profile">
+            <p><%= output.name %></p>
             <div class="logout">profile</div>
         </a>
 
@@ -492,7 +492,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
     <div class="content" name="postid"> </a>
 
-        <% output.photo.forEach(e=>{ %>
+        <% result.forEach(e=>{ %>
         <div class="container">
 
             <div class="gallery">
@@ -502,12 +502,20 @@ Remove or comment-out the code block below to see how the browser will fall-back
                     <img src="<%= e.photoUrl %>" class="gallery-image" alt="">
                     
                     <div class="gallery-item-info">
+
+                        <!-- ========================[User FullName]=================== -->
+                        <ul>
+                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span class="visually-hidden">user:</span><i
+                                    class="fas fa-user" aria-hidden="true"></i> <%= e.User.fullName %> </li>
+                        </ul>
+
+
                         <!-- ========================[TAGs]=================== -->
                         <%if(e.Tags.length > 0) { %>
                         <ul>
                             <% e.Tags.forEach(t => { %>
-                            <li class="gallery-item-likes"><span class="visually-hidden">tag:</span><i
-                                    class="fas fa-heart" aria-hidden="true"></i> <%= t.name %> </li>
+                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span class="visually-hidden">tag:</span><i
+                                    class="fas fa-tag" aria-hidden="true"></i> <%= t.name %> </li>
                             <% }) %>
                         </ul>
                         <% } %>
