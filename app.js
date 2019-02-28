@@ -8,16 +8,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-
-const userRoutes = require("./routes/user")
-const homeRoutes = require("./routes/home")
-const feeltrRoutes = require("./routes/feeltr")
-
 app.use(session({
     secret: "keyboard cat"
 }))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+
+const userRoutes = require("./routes/user")
+const homeRoutes = require("./routes/home")
+const feeltrRoutes = require("./routes/feeltr")
+
 
 //routing
 app.use("/", homeRoutes)
