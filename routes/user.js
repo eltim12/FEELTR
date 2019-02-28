@@ -3,6 +3,7 @@ const bcrypt = require('../helpers/encrypt')
 const User = require("../models").User
 const Photo = require("../models").Photo
 
+
 router.get("/register", (req, res) => {
     let errMsg = null
     if (req.query.err) {
@@ -12,7 +13,8 @@ router.get("/register", (req, res) => {
 })
 
 router.post("/register", (req, res) => {
-    // res.send(req.query.err)
+    // console.log(req.body)
+    // res.send(req.body)
     User.create({
         fullName: req.body.fullName,
         username: req.body.username,
@@ -40,6 +42,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     // res.send(req.body)
+    console.log(req.body)
     User
         .findOne({
             where: {
@@ -83,12 +86,12 @@ router.get("/:id/profile", (req, res) => {
                 session: req.session
             }
             // res.send(data)
-            res.render("userPost.ejs", {output: data})
+            res.render("userPost.ejs", { output: data })
         })
         .catch(err => {
             res.send(err)
         })
-    // res.render("userPost.ejs")
+    res.render("userPost.ejs")
 })
 
 router.get("/:id/edit", (req, res) => {
@@ -102,10 +105,10 @@ router.get("/:id/edit", (req, res) => {
         })
 })
 
-// router.get("/:id/editProfile",(req,res) => {
-//     req.send(req.params)
-//     // res.render("userEdit.ejs")
-// })
+router.get("/:id/editProfile",(req,res) => {
+    req.send(req.params)
+    res.render("userEdit.ejs")
+})
 
 router.get("/session", (req, res) => {
     res.send(req.session)

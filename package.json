@@ -20,6 +20,7 @@
   "dependencies": {
     "base64-to-image": "^1.0.2",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
