@@ -5,9 +5,9 @@ const upload = require('../helpers/multer')
 const checkLogin = require('../middlewares/checkLogin')
 
 
-router.get('/', (req, res) => {
-    res.render()
-})
+// router.get('/', (req, res) => {
+//     res.render()
+// })
 
 
 router.get('/:id', checkLogin, (req, res) => {
@@ -43,11 +43,13 @@ router.post('/getTags/:id', (req, res) => {
             return PhotoTag.bulkCreate(tags, { returning: true })
         })
         .then(data => {
-            res.redirect('success coy')
+            res.redirect("/")
         })
         .catch(err => {
             res.send(err)
         })
+    // res.send(req.body)
+        // console.log(req.body)
 })
 
 router.post("/:id", upload.single("image"), (req, res) => {
