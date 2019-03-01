@@ -81,11 +81,11 @@ router.get("/logout", (req, res) => {
 router.get("/:id/profile", (req, res) => {
     let userData
     Photo.findAll({ where: { UserId: req.params.id }, include: { model: Tag } })
-            // res.render("userPost.ejs", { output: data })
-    
+        // res.render("userPost.ejs", { output: data })
+
         .then(photosData => {
             // res.send(photosData)
-            res.render('userPost', { userData: req.session.userLoggin, photos: photosData })
+            res.render('userPost', { userData: req.session.userLoggin, photos: photosData, output: req.session.userLoggin })
         })
         .catch(err => {
             res.send(err)

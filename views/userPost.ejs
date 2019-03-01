@@ -478,17 +478,11 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
     <div class="logoutLimitter">
         <div class="welcome">
-            <a class="button" href="/users/<%= output.userData.id %>/edit">
-                <p><%= output.session.userLoggin.name %></p>
+            <a class="button" href="/users/<%= userData.id %>/edit">
+                <p><%= userData.name %></p>
                 <div class="logout">edit</div>
             </a>
         </div>
-    </div>
-
-        <a class="button" href="/users/<%= userData.id %>/edit">
-            <p><%= userData.name %></p>
-            <div class="logout">edit</div>
-        </a>
     </div>
 
 
@@ -511,12 +505,13 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
                     <div class="gallery-item-info">
 
-                    <!-- ========================[TAGs]=================== -->
+                        <!-- ========================[TAGs]=================== -->
                         <%if(e.Tags.length > 0) { %>
                         <ul>
                             <% e.Tags.forEach(t => { %>
-                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span class="visually-hidden">tag:</span><i
-                                    class="fas fa-tag" aria-hidden="true"></i> <%= t.name %> </li>
+                            <li class="gallery-item-likes" style="font-family:Arial, Helvetica, sans-serif"><span
+                                    class="visually-hidden">tag:</span><i class="fas fa-tag" aria-hidden="true"></i>
+                                <%= t.name %> </li>
                             <% }) %>
                         </ul>
                         <% } %>
@@ -529,14 +524,14 @@ Remove or comment-out the code block below to see how the browser will fall-back
         </div>
         <% }) %>
 
-    <div class="logoutLimitter">
-        <div class="keluar">
-            <a class="button" href="/users/logout">
-                <p>logout</p>
-                <div class="logout">sure?</div>
-            </a>
+        <div class="logoutLimitter">
+            <div class="keluar">
+                <a class="button" href="/users/logout">
+                    <p>logout</p>
+                    <div class="logout">sure?</div>
+                </a>
+            </div>
         </div>
-    </div>
 
 
 </body>

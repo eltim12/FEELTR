@@ -43,7 +43,7 @@ router.post('/getTags/:id', (req, res) => {
             return PhotoTag.bulkCreate(tags, { returning: true })
         })
         .then(data => {
-            res.redirect('success coy')
+            res.redirect('/')
         })
         .catch(err => {
             res.send(err)

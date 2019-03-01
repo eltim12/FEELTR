@@ -49,7 +49,7 @@
             margin: 0;
         }
 
-        #cssmenu ul li a  #user {
+        #cssmenu ul li a #user {
             color: red;
             display: inline-block;
             padding: 0;
@@ -251,11 +251,20 @@
         <ul>
 
             <li>
-                <a href='/feeltr'>
-                    <span>
-                        FEELTR
-                    </span>
-                </a>
+                <% if(output){ %>
+                    <a href='/feeltr/<%= output.id %>'>
+                        <span>
+                            FEELTR
+                        </span>
+                    </a>
+                <% } else { %>
+                    <a href='/users/login'>
+                        <span>
+                            FEELTR
+                        </span>
+                    </a>
+                <% } %>
+                
             </li>
 
 
@@ -263,7 +272,7 @@
 
     </div>
 
-    <form action="/searchTag" method="POST" >
+    <form action="/searchTag" method="POST">
         <input type="search" name="searchTag">
         <i class="fa fa-search"></i>
     </form>
